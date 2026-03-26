@@ -15,6 +15,7 @@ FIXME: place any data you want learners to use in `episodes/data` and then use
 -->
 You will be using Google Colab to complete the exercises in this lesson. Colab provides a terminal environment where you can practice BASH commands without needing to install anything on your local machine.
 To access the terminal in Google Colab, follow these steps:
+
 1. Go to [Google Colab](https://colab.research.google.com) and sign in with your Google account. If you don't have a Google account, you'll need to create one.
 2. Once you're signed in, click on the "Terminal" icon located in the lower left sidebar. This will open a terminal window within Colab.
 3. In the terminal, type `cd sample_data` followed by an enter to move to a folder that contains some files you'll be using for practice.
