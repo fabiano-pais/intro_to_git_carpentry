@@ -20,6 +20,8 @@ To access the terminal in Google Colab, follow these steps:
 2. Once you're signed in, click on the "Terminal" icon located in the lower left sidebar. This will open a terminal window within Colab.
 You are now ready to start learning BASH commands in the terminal environment provided by Google Colab!
 
+No required dataset for this course.
+
 ## During the lesson
 
 Our team will be available during the training to help you with any issues you may encounter. If you have questions or need assistance, please do not hesitate to reach out.
