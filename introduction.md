@@ -1,114 +1,355 @@
 ---
-title: "Using Markdown"
-teaching: 10 # teaching time in minutes
-exercises: 2 # exercise time in minutes
+title: "Version Control with Git and GitHub"
+teaching: 4
+exercises: 4
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using Markdown and `{sandpaper}`?
+- Do you know what a version control system is?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with The Carpentries Workbench
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- This introduction provides a slightly simplified view of how git is used "in real life".
+- You will create a remote repository on GitHub, clone it to your local machine, make some changes, and push those changes back to GitHub.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
+## Prerequisites
 
-## Introduction
+Before you start, you need to:
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown](https://pandoc.org/MANUAL.html) for static files and
-[R Markdown][r-markdown] for dynamic files that can render code into output. 
-Please refer to the [Introduction to The Carpentries 
-Workbench](https://carpentries.github.io/sandpaper-docs/) for full documentation.
+1. Have `git` installed; Google Colab terminal has git;
+2. Be able to type commands using a terminal on your computer;
+4. Have created a [GitHub](https://github.com) account for yourself
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson:
+## 1. Create a remote repository
 
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
+The first thing we're going to do is to create an empty remote repository using GitHub.  We'll use this repository for practice purposes, so be sure of making it *private*. You'll be also asked to create a *name*, which should be something you can easily track. Also, allow GitHub to create a README file. We suggest a (later) carefull reading about licenses.
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+Go to your GitHub account, and click on the "+" icon at the top right of the page, then select "New repository".
+Fill in the repository name (e.g., `test-may26`), add a description if you want, select "Private", and check the box to add a README file. Then click on the green "Create repository" button.
 
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::: challenge 
-
-## Challenge 1: Can you do it?
-
-What is the output of this command?
-
-```r
-paste("This", "new", "lesson", "looks", "good")
-```
-
-:::::::::::::::::::::::: solution 
-
-## Output
- 
-```output
-[1] "This new lesson looks good"
-```
-
-:::::::::::::::::::::::::::::::::
-
-
-## Challenge 2: how do you nest solutions within challenge blocks?
-
-:::::::::::::::::::::::: solution 
-
-You can add a line with at least three colons and a `solution` tag.
-
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Figures
-
-You can use standard markdown for static figures with the following syntax:
-
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
+Now that you've created your 1st repository, we'll clone it on your local machine. Note that you may clone any public repository in the exact same way.
 
 ::::::::::::::::::::::::::::::::::::: callout
 
-Callout sections can highlight information.
-
-They are sometimes used to emphasise particularly important points
-but are also used in some lessons to present "asides": 
-content that is not central to the narrative of the lesson,
-e.g. by providing the answer to a commonly-asked question.
+Cloning a repository means making a local copy of a remote repository. Any changes you make to your local copy can later be pushed back to the remote repository. You can clone any repository you have access to, including your own repositories and public repositories created by other users.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+## 2. Clone the remote repo and make it a local repository
 
-## Math
+At your new remote repository, find and click at the green box where it says "<>Code". A dropdown menu box will appear, and you'll be able to copy the HTTPS adress.
 
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
+For now on, this session will be mainly executed at the terminal. We'll use the `git clone` command plus the HTTPS address you just copied:
 
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
+```bash
+$ git clone <HTTPS_ADRESS>
+```
 
-Cool, right?
+This command has created a new directory in your machine named `test-may26` at your currect working directory.
+As this is a empty repository, it contains only one file: `README.md`. The `git clone` command has also created a hidden directory named `.git` inside the new directory. This directory contains all the information about the repository, including its history and configuration.
+To check that the `.git` directory exists, change into the new directory and list its contents:
 
-::::::::::::::::::::::::::::::::::::: keypoints 
+```bash
+$ cd test-may26
+$ ls -a
+./ ../ .git/ README.md
+# Files and folders starting with a `.` are hidden in bash, so we need to add the `-a` argument to `ls` to see them
+```
 
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+Now check the status of the repository:
+
+```bash
+$ git status
+
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+```
+
+> The above message is saying that there is a repository here with one file only: README.md.
+
+## 3. Let's populate our local repo
+
+Now that we have a local repository ready (cloned from a remote one), it is time to add data to this repo.
+This can be anything, but here we'll create a file with a simple python script.
+
+Let's create an empty file first.
+
+```bash
+$ touch myCode.py
+```
+
+Now that we've created a file, let's write a simple code for it to print the classical "Hello, world!" message.
+We'll need a text editor inside the terminal, and there are many. Here we'll use vim. 
+
+::::::::::::::::::::::::::::::::::::: callout
+
+Vim is a text editor released in 1992. To use it you must first press `I` to begin `INSERT` mode after running the program.
+Whist in `INSERT` mode, add the two lines below. Then, to save the content, you must press `ESC`, then `:`, then `wc` and `ENTER`. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[r-markdown]: https://rmarkdown.rstudio.com/
+```bash
+$ vim myCode.py
+#!/usr/bin/env python3
+print("Hello, world!") 
+```
+
+Now the content have been saved, execute the python code on the terminal.
+
+```bash
+$ python myCode.py
+Hello, world!
+```
+
+## 4. Make our first commit
+
+We now need to add this new file to the index, and commit it to our repository.
+Check the status first, then add it to the index:
+
+```bash
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	myCode.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+$ git add myCode.py
+
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   myCode.py
+```
+
+> This message tells us that the new file is now in the index ready to be committed.
+
+We can now store this set of changes into a commit:
+
+```bash
+$ git commit -m"My first commit"
+[main fcf698d] My first commit
+ 1 file changed, 3 insertions(+)
+ create mode 100644 myCode.py
+```
+
+Now, let's check the log:
+
+```bash
+$ git log
+commit fcf698dbaffbc01a839d32a34e90282ea1ca7be1 (HEAD -> main)
+Author: fabiano-pais <fabiano.pais@york.ac.uk>
+Date:   Tue Mar 26 13:22:11 2024 +0000
+
+    My first commit
+
+commit cccf6f34a28efbd926e15205384242a0fe7c1236 (origin/main, origin/HEAD)
+Author: Fabiano Pais <100767268+fabiano-pais@users.noreply.github.com>
+Date:   Mon Mar 25 11:04:56 2024 +0000
+
+    Initial commit
+```
+
+> Your log will look different.
+> Your commit will have a different ID, and your username should be different to this one!
+> This is the "standard loop" of git: generate content; fill up an index of modified files; commit those changes to the repository.
+
+## 5. Let's test the repository
+
+One use of git is as a method of backup.
+Let's test this by deleting the file.
+
+```bash
+$ rm myCode.py
+$ ls
+```
+
+Oops!  We've accidentially deleted our code!
+Not to worry; we have a copy in the repository.
+First, let's check what git thinks about this:
+
+```bash
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    myCode.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+> This message is telling us that a file that is recorded in the repository is missing.
+> We have the option of recording its deletion in the index and committing that (we'd use `git rm myCode.py`), but in this case the deletion was accidental so we'll simply get the file back from the latest commit.
+
+We can retrieve the file from the latest commit:
+
+```bash
+$ git checkout myCode.py
+Updated 1 path from the index
+$ ls
+```
+
+> Great! We've got our code back again.
+> This is a major benefit of `git`.
+
+## 6. Adding a feature
+
+Now, let's say we need to update our code.
+We'll do this in a new branch in case our modifications break something.
+
+First, let's create a new branch my checking out the latest commit into a new branch (called `more coding`):
+
+```bash
+$ git checkout -b more-coding
+Switched to a new branch 'more-coding'
+
+$ git status
+On branch more-coding
+nothing to commit, working tree clean
+```
+
+Now update the code by replicing and adding lines.
+
+::::::::::::::::::::::::::::::::::::: callout
+
+We'll do this again with Vim. So remember to press `I` to begin `INSERT` mode after running the program.
+Whist in `INSERT` mode, make the edits below. Then, to save the content, press `ESC`, then `:`, then `wc` and `ENTER`.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+Update line 2:
+print("Hello, UoY!")
+
+Add a new line (3):
+print("I'm learning GIT!")
+
+Now that we've made some modifictions, save the file, and then make a new index and commit is as before:
+
+```bash
+$ git add myCode.py
+$ git commit -m"Adding more code"
+[more-coding 81d2bed] Adding more code
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+```
+
+> Obviously, in the real world, more complex features will be implemented, and would likely require multiple rounds of code editing and committing.
+
+Although we've now edited myCode.py, we can still get the unedited version by switching branches back to main:
+
+```bash
+$ git switch main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+$ more myCode.py
+#!/usr/bin/env python3
+print("Hello, world!")
+```
+
+> As you can see, this version of myCode.py is the old version!
+
+Once we're happy with the new code, we can merge the branch back into the main branch:
+
+```bash
+$ git merge more-coding
+Updating fcf698d..81d2bed
+Fast-forward
+ myCode.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+```
+
+> OK, we've now merged the code back into our main branch. We're back in the main branch, and our code has been correctly updated.
+
+## 7. Push the local repository to GitHub
+
+Now that the local repository is linked to a remote location, we can push it to the cloud:
+
+```bash
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 641 bytes | 641.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/fabiano-pais/test-march25.git
+   cccf6f3..81d2bed  main -> main
+```
+
+Congratulations! You've just pushed your local repository to GitHub!
+If you go back to the GitHub and refresh the repository page, you should see that your code has been uploaded.
+
+## 8. Adding a README file
+
+Currently, the repository is not very well documented.
+By convention, a file named `README` or `README.md` in the root of your workspace is taken to contain a description of the project.
+If such a file exists, GitHub will display it on the main repository page.
+Let's add a brief description.
+
+Go back to your text editor, and replace the existing text by the following:
+
+```markdown
+# Analytics 2 
+
+Introduction to Version Control.
+```
+
+As we've added a file, we need to make a new commit:
+
+```bash
+$ git status
+
+$ git add README.md
+
+$ git commit -m"Adding info to README"
+[main fb725f2] Adding info to README
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+```
+
+We can now push this new commit to GitHub:
+
+```bash
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 334 bytes | 334.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/fabiano-pais/test-march25.git
+   81d2bed..fb725f2  main -> main
+```
+
+Go back to Github and refresh the page again.
+Hopefully, you'll see the new README documentation appear.
+
+## 9. Markdown
+
+> The `README.md` file we've just created uses a format called Markdown.
+> This is a very simple text file format that allows a computer to render our text nicely.
+> You can dig into the format by reading the [documentation on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github).
