@@ -302,7 +302,7 @@
         
 <section id="aio-introduction"><p>Content from <a href="introduction.html">Version Control with Git and GitHub</a></p>
 <hr>
-<p>Last updated on 2026-03-26 |
+<p>Last updated on 2026-03-27 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 8 minutes</p>
@@ -358,7 +358,7 @@ track. Also, allow GitHub to create a README file. We suggest a (later)
 carefull reading about licenses.</p>
 <p>Go to your GitHub account, and click on the “+” icon at the top right
 of the page, then select “New repository”. Fill in the repository name
-(e.g., <code>test-may26</code>), add a description if you want, select
+(e.g., <code>test_may26</code>), add a description if you want, select
 “Private”, and check the box to add a README file. Then click on the
 green “Create repository” button.</p>
 <p>Now that you’ve created your 1st repository, we’ll clone it on your
@@ -394,20 +394,20 @@ just copied:</p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> git clone <span class="op">&lt;</span>HTTPS_ADRESS<span class="op">&gt;</span></span></code></pre>
 </div>
 <p>This command has created a new directory in your machine named
-<code>test-may26</code> at your currect working directory. As this is a
-empty repository, it contains only one file: <code>README.md</code>. The
-<code>git clone</code> command has also created a hidden directory named
-<code>.git</code> inside the new directory. This directory contains all
-the information about the repository, including its history and
-configuration. To check that the <code>.git</code> directory exists,
-change into the new directory and list its contents:</p>
+<code>test_may26</code> at your currect working directory. As this is a
+empty repository, it contains only one file: <code>README.md</code>.
+However, the <code>git clone</code> command has also created a hidden
+directory named <code>.git</code> inside the new directory. This
+directory contains all the information about the repository, including
+its history and configuration. To check that the <code>.git</code>
+directory exists, move into the new directory and list its contents:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd test-may26</span>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd test_may26</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-a</span></span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">./</span> ../ .git/ README.md</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co"># Files and folders starting with a `.` are hidden in bash, so we need to add the `-a` argument to `ls` to see them</span></span></code></pre>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co"># Files and folders starting with a `.` are hidden in bash, so we need to add the `-a` argument to the `ls` command to see them</span></span></code></pre>
 </div>
 <p>Now check the status of the repository:</p>
 <div class="codewrapper sourceCode" id="cb3">
@@ -422,8 +422,9 @@ change into the new directory and list its contents:</p>
 <span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="ex">nothing</span> to commit <span class="er">(</span><span class="ex">create/copy</span> files and use <span class="st">"git add"</span> to track<span class="kw">)</span></span></code></pre>
 </div>
 <blockquote>
-<p>The above message is saying that there is a repository here with one
-file only: README.md.</p>
+<p>The above message is saying that you’re in the main branch of the
+repository, no changes were commited so far, and there’s nothing to
+commit.</p>
 </blockquote>
 </section><section><h2 class="section-heading" id="lets-populate-our-local-repo">3. Let’s populate our local repo<a class="anchor" aria-label="anchor" href="#lets-populate-our-local-repo"></a>
 </h2>
@@ -800,9 +801,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/instructor/aio.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/instructor/aio.html",
-  "dateCreated": "2026-03-26",
-  "dateModified": "2026-03-26",
-  "datePublished": "2026-03-26"
+  "dateCreated": "2026-03-27",
+  "dateModified": "2026-03-27",
+  "datePublished": "2026-03-27"
 }
 
   </script><script>
