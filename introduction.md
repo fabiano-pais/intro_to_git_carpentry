@@ -29,7 +29,7 @@ Before you start, you need to:
 The first thing we're going to do is to create an empty remote repository using GitHub.  We'll use this repository for practice purposes, so be sure of making it *private*. You'll be also asked to create a *name*, which should be something you can easily track. Also, allow GitHub to create a README file. We suggest a (later) carefull reading about licenses.
 
 Go to your GitHub account, and click on the "+" icon at the top right of the page, then select "New repository".
-Fill in the repository name (e.g., `test-may26`), add a description if you want, select "Private", and check the box to add a README file. Then click on the green "Create repository" button.
+Fill in the repository name (e.g., `test_may26`), add a description if you want, select "Private", and check the box to add a README file. Then click on the green "Create repository" button.
 
 Now that you've created your 1st repository, we'll clone it on your local machine. Note that you may clone any public repository in the exact same way.
 
@@ -49,15 +49,15 @@ For now on, this session will be mainly executed at the terminal. We'll use the 
 $ git clone <HTTPS_ADRESS>
 ```
 
-This command has created a new directory in your machine named `test-may26` at your currect working directory.
-As this is a empty repository, it contains only one file: `README.md`. The `git clone` command has also created a hidden directory named `.git` inside the new directory. This directory contains all the information about the repository, including its history and configuration.
-To check that the `.git` directory exists, change into the new directory and list its contents:
+This command has created a new directory in your machine named `test_may26` at your currect working directory.
+As this is a empty repository, it contains only one file: `README.md`. However, the `git clone` command has also created a hidden directory named `.git` inside the new directory. This directory contains all the information about the repository, including its history and configuration.
+To check that the `.git` directory exists, move into the new directory and list its contents:
 
 ```bash
-$ cd test-may26
+$ cd test_may26
 $ ls -a
 ./ ../ .git/ README.md
-# Files and folders starting with a `.` are hidden in bash, so we need to add the `-a` argument to `ls` to see them
+# Files and folders starting with a `.` are hidden in bash, so we need to add the `-a` argument to the `ls` command to see them
 ```
 
 Now check the status of the repository:
@@ -72,7 +72,7 @@ No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 ```
 
-> The above message is saying that there is a repository here with one file only: README.md.
+> The above message is saying that you're in the main branch of the repository, no changes were commited so far, and there's nothing to commit.
 
 ## 3. Let's populate our local repo
 
