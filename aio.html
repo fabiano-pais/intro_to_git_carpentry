@@ -293,7 +293,7 @@
         
 <section id="aio-introduction"><p>Content from <a href="introduction.html">Version Control with Git and GitHub</a></p>
 <hr>
-<p>Last updated on 2026-03-27 |
+<p>Last updated on 2026-04-23 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -428,8 +428,8 @@ we’ll create a file with a simple python script.</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a><span class="ex">$</span> touch myCode.py</span></code></pre>
 </div>
-<p>Now that we’ve created a file, let’s write a simple code for it to
-print the classical “Hello, world!” message. We’ll need a text editor
+<p>Now that we’ve created a file, let’s write a simple code in Python
+for it to print a “Hello, world!” message. We’ll need a text editor
 inside the terminal, and there are many. Here we’ll use vim.</p>
 <div id="callout2" class="callout">
 <div class="callout-square">
@@ -449,23 +449,24 @@ Then, to save the content, you must press <code>ESC</code>, then
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="ex">$</span> vim myCode.py</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1" aria-label="code-block-5-2"></a><span class="co">#!/usr/bin/env python3</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1" aria-label="code-block-5-3"></a><span class="ex">print</span><span class="er">(</span><span class="st">"Hello, world!"</span><span class="kw">)</span> </span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="ex">$</span> vim myCode.py</span></code></pre>
 </div>
-<p>Now the content have been saved, execute the python code on the
-terminal.</p>
+<p>Once you’ve started the text editor, write the two strings below:
+<code>#!/usr/bin/env python3</code> <code>print("Hello, world!")</code>
+Save the content and exit the text editor. Test your code by execute the
+python code on the terminal.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a><span class="ex">$</span> python myCode.py</span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1" aria-label="code-block-6-2"></a><span class="ex">Hello,</span> world!</span></code></pre>
 </div>
-</section><section><h2 class="section-heading" id="make-our-first-commit">4. Make our first commit<a class="anchor" aria-label="anchor" href="#make-our-first-commit"></a>
+</section><section><h2 class="section-heading" id="make-your-first-commit">4. Make your first commit<a class="anchor" aria-label="anchor" href="#make-your-first-commit"></a>
 </h2>
 <hr class="half-width">
-<p>We now need to add this new file to the index, and commit it to our
-repository. Check the status first, then add it to the index:</p>
+<p>We now need to add the new file to the index, and commit it to our
+repository. Check the status first, then run git add, and run a git
+status again.</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -490,10 +491,11 @@ repository. Check the status first, then add it to the index:</p>
 <span id="cb7-19"><a href="#cb7-19" tabindex="-1" aria-label="code-block-7-19"></a>	<span class="ex">new</span> file:   myCode.py</span></code></pre>
 </div>
 <blockquote>
-<p>This message tells us that the new file is now in the index ready to
-be committed.</p>
+<p>The first message tells about an “untracked” file, that will be
+tracked after adding to the index area; The second message tells us that
+the new file is now in the index area and ready to be committed.</p>
 </blockquote>
-<p>We can now store this set of changes into a commit:</p>
+<p>Let’s do our first commit:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -502,7 +504,7 @@ be committed.</p>
 <span id="cb8-3"><a href="#cb8-3" tabindex="-1" aria-label="code-block-8-3"></a> <span class="ex">1</span> file changed, 3 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span>
 <span id="cb8-4"><a href="#cb8-4" tabindex="-1" aria-label="code-block-8-4"></a> <span class="ex">create</span> mode 100644 myCode.py</span></code></pre>
 </div>
-<p>Now, let’s check the log:</p>
+<p>Now check the log:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -520,7 +522,7 @@ be committed.</p>
 <span id="cb9-12"><a href="#cb9-12" tabindex="-1" aria-label="code-block-9-12"></a>    <span class="ex">Initial</span> commit</span></code></pre>
 </div>
 <blockquote>
-<p>Your log will look different. Your commit will have a different ID,
+<p>Your log will look different; Your commit will have a different ID,
 and your username should be different to this one! This is the “standard
 loop” of git: generate content; fill up an index of modified files;
 commit those changes to the repository.</p>
@@ -791,9 +793,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/aio.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/aio.html",
-  "dateCreated": "2026-03-27",
-  "dateModified": "2026-04-21",
-  "datePublished": "2026-04-21"
+  "dateCreated": "2026-04-23",
+  "dateModified": "2026-04-23",
+  "datePublished": "2026-04-23"
 }
 
   </script><script>
