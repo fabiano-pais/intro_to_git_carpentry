@@ -85,8 +85,8 @@ Let's create an empty file first.
 $ touch myCode.py
 ```
 
-Now that we've created a file, let's write a simple code for it to print the classical "Hello, world!" message.
-We'll need a text editor inside the terminal, and there are many. Here we'll use vim. 
+Now that we've created a file, let's write a simple code in Python for it to print a "Hello, world!" message.
+We'll need a text editor inside the terminal, and there are many. Here we'll use vim.
 
 ::::::::::::::::::::::::::::::::::::: callout
 
@@ -97,21 +97,21 @@ Whist in `INSERT` mode, add the two lines below. Then, to save the content, you 
 
 ```bash
 $ vim myCode.py
-#!/usr/bin/env python3
-print("Hello, world!") 
 ```
-
-Now the content have been saved, execute the python code on the terminal.
+Once you've started the text editor, write the two strings below:
+`#!/usr/bin/env python3`
+`print("Hello, world!")`
+Save the content and exit the text editor. Test your code by execute the python code on the terminal.
 
 ```bash
 $ python myCode.py
 Hello, world!
 ```
 
-## 4. Make our first commit
+## 4. Make your first commit
 
-We now need to add this new file to the index, and commit it to our repository.
-Check the status first, then add it to the index:
+We now need to add the new file to the index, and commit it to our repository.
+Check the status first, then run git add, and run a git status again.
 
 ```bash
 $ git status
@@ -135,9 +135,10 @@ Changes to be committed:
 	new file:   myCode.py
 ```
 
-> This message tells us that the new file is now in the index ready to be committed.
+> The first message tells about an "untracked" file, that will be tracked after adding to the index area;
+> The second message tells us that the new file is now in the index area and ready to be committed.
 
-We can now store this set of changes into a commit:
+Let's do our first commit:
 
 ```bash
 $ git commit -m"My first commit"
@@ -146,7 +147,7 @@ $ git commit -m"My first commit"
  create mode 100644 myCode.py
 ```
 
-Now, let's check the log:
+Now check the log:
 
 ```bash
 $ git log
@@ -163,7 +164,7 @@ Date:   Mon Mar 25 11:04:56 2024 +0000
     Initial commit
 ```
 
-> Your log will look different.
+> Your log will look different;
 > Your commit will have a different ID, and your username should be different to this one!
 > This is the "standard loop" of git: generate content; fill up an index of modified files; commit those changes to the repository.
 
