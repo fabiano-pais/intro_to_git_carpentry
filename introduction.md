@@ -26,12 +26,13 @@ Before you start, you need to:
 
 ## 1. Create a remote repository
 
-The first thing we're going to do is to create an empty remote repository using GitHub.  We'll use this repository for practice purposes, so be sure of making it *private*. You'll be also asked to create a *name*, which should be something you can easily track. Also, allow GitHub to create a README file. We suggest a (later) carefull reading about licenses.
+The first thing we're going to do is to create an empty remote repository using GitHub.  We'll use this repository for practice purposes. A reposiory needs a *name*, which should be something you can easily track and related to your work. You can (and should) also add a brief *description* in the corresponded field.
 
-Go to your GitHub account, and click on the "+" icon at the top right of the page, then select "New repository".
-Fill in the repository name (e.g., `test_may26`), add a description if you want, select "Private", and check the box to add a README file. Then click on the green "Create repository" button.
+To create your first repository go to your GitHub account, and click on the "+" icon at the top right of the page, then select "New repository". Fill in the repository name (e.g., `test_may26`), add a description to it. After this initial set up, please select "Private" (to make it invisible to other users) and "No template" (as we don't need this). Please check the box to add a README file to your reposotory. Leve "No .gitignore" and "No licence" as it is, and then click on the green "Create repository" button. That's all you need to create a repository.
 
-Now that you've created your 1st repository, we'll clone it on your local machine. Note that you may clone any public repository in the exact same way.
+When creating a repo, we suggest to do it private first as you can change it to publicly available anytime later. We also suggest reading about licenses sometime later.
+
+Now that you've created your 1st repository, we will clone it on your local machine. Note that you may clone ANY public repository in the exact same way.
 
 ::::::::::::::::::::::::::::::::::::: callout
 
@@ -307,12 +308,8 @@ If you go back to the GitHub and refresh the repository page, you should see tha
 
 ## 8. Adding a README file
 
-Currently, the repository is not very well documented.
-By convention, a file named `README` or `README.md` in the root of your workspace is taken to contain a description of the project.
-If such a file exists, GitHub will display it on the main repository page.
-Let's add a brief description.
+At this stage, the repository you've created is not documented. You've asked Git to create a READme file, and you will a file named `README` or `README.md` in the root of your workspace. The READme file should contains what you've added at the  "description" field.
 
-Go back to your text editor, and replace the existing text by the following:
 
 ```markdown
 # Analytics 2 
@@ -353,4 +350,4 @@ Hopefully, you'll see the new README documentation appear.
 
 > The `README.md` file we've just created uses a format called Markdown.
 > This is a very simple text file format that allows a computer to render our text nicely.
-> You can dig into the format by reading the [documentation on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github).
+> You can learn more about this format by reading the [documentation on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github).
