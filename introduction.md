@@ -28,9 +28,9 @@ Before you start, you need to:
 
 The first thing we're going to do is to create an empty remote repository using GitHub.  We'll use this repository for practice purposes. A reposiory needs a *name*, which should be something you can easily track and related to your work. You can (and should) also add a brief *description* in the corresponded field.
 
-To create your first repository go to your GitHub account, and click on the "+" icon at the top right of the page, then select "New repository". Fill in the repository name (e.g., `test_may26`), add a description to it. After this initial set up, please select "Private" (to make it invisible to other users) and "No template" (as we don't need this). Please check the box to add a README file to your reposotory. Leve "No .gitignore" and "No licence" as it is, and then click on the green "Create repository" button. That's all you need to create a repository.
+To create your first repository go to your GitHub account, and click on the "+" icon at the top right of the page, then select "New repository". Fill in the repository name (e.g., `test_may26`), add a description to it. After this initial set up, please select "Private" (to make it invisible to other users) and "No template" (as we don't need this). Please check the box to add a README file to your repository. Leve "No .gitignore" and "No licence" as it is, and then click on the green "Create repository" button. That's all you need to create a repository.
 
-When creating a repo, we suggest to do it private first as you can change it to publicly available anytime later. We also suggest reading about licenses sometime later.
+When creating a repository, we suggest to do it private first as you can change it to publicly available anytime later. We also suggest reading about licenses sometime later.
 
 Now that you've created your 1st repository, we will clone it on your local machine. Note that you may clone ANY public repository in the exact same way.
 
@@ -40,11 +40,11 @@ Cloning a repository means making a local copy of a remote repository. Any chang
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## 2. Clone the remote repo and make it a local repository
+## 2. Clone the remote repository and make it a local repository
 
 At your new remote repository, find and click at the green box where it says "<>Code". A dropdown menu box will appear, and you'll be able to copy the HTTPS adress.
 
-For now on, this session will be mainly executed at the terminal. We'll use the `git clone` command plus the HTTPS address you just copied:
+For now on, this session will be mainly executed at the terminal. We'll use the `git clone` command and paste the HTTPS address you just copied:
 
 ```bash
 $ git clone <HTTPS_ADRESS>
@@ -91,8 +91,8 @@ We'll need a text editor inside the terminal, and there are many. Here we'll use
 
 ::::::::::::::::::::::::::::::::::::: callout
 
-Vim is a text editor released in 1992. To use it you must first press `I` to begin `INSERT` mode after running the program.
-Whist in `INSERT` mode, add the two lines below. Then, to save the content, you must press `ESC`, then `:`, then `wc` and `ENTER`. 
+Vim is a text editor released in 1992. To start adding text to a file you must first press `I` to begin `INSERT` mode after executing the program in the Terminal.
+Whist in `INSERT` mode, add the two lines below. Then, to save the content, you must press `ESC`, then `:`, then `wc` and `ENTER`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -136,7 +136,7 @@ Changes to be committed:
 	new file:   myCode.py
 ```
 
-> The first message tells about an "untracked" file, that will be tracked after adding to the index area;
+> The first message tells about an "untracked" file, that will be tracked after adding it to the index area;
 > The second message tells us that the new file is now in the index area and ready to be committed.
 
 Let's do our first commit:
@@ -165,21 +165,20 @@ Date:   Mon Mar 25 11:04:56 2024 +0000
     Initial commit
 ```
 
-> Your log will look different;
-> Your commit will have a different ID, and your username should be different to this one!
-> This is the "standard loop" of git: generate content; fill up an index of modified files; commit those changes to the repository.
+> Your log will look different because of the different commit ID, along with names, date and author name;
+> Every commit has a different ID, and Git uses this ID to track any change previously committed.
+> This is the basic way of working with git: you generate content; add the files to the index area; then commit those changes to the local repository; and finally push to the remote repository.
 
-## 5. Let's test the repository
+## 5. Run a "test" of your new repository
 
-One use of git is as a method of backup.
-Let's test this by deleting the file.
+Once your repository has being created, any file(s) accidentally deleted can be recovered. If you've commited to your local repository only, you may recover deleted files when using the same computer originally used to create the repository.
+Let's test this feature by deleting the code you've created.
 
 ```bash
 $ rm myCode.py
-$ ls
 ```
 
-Oops!  We've accidentially deleted our code!
+Oops!  We've "accidentially" deleted our code!
 Not to worry; we have a copy in the repository.
 First, let's check what git thinks about this:
 
@@ -198,9 +197,9 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 > This message is telling us that a file that is recorded in the repository is missing.
-> We have the option of recording its deletion in the index and committing that (we'd use `git rm myCode.py`), but in this case the deletion was accidental so we'll simply get the file back from the latest commit.
+> There's a command line to delete and retain deletion in the index in the repository. This can be done by entering `git rm myCode.py`.
 
-We can retrieve the file from the latest commit:
+Since the deletion was "accidental", we can retrieve the file with the following commands:
 
 ```bash
 $ git checkout myCode.py
@@ -208,7 +207,7 @@ Updated 1 path from the index
 $ ls
 ```
 
-> Great! We've got our code back again.
+> We've got our code back again.
 > This is a major benefit of `git`.
 
 ## 6. Adding a feature
