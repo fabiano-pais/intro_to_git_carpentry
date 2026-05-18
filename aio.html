@@ -351,12 +351,12 @@ repository”. Fill in the repository name (e.g.,
 <code>test_may26</code>), add a description to it. After this initial
 set up, please select “Private” (to make it invisible to other users)
 and “No template” (as we don’t need this). Please check the box to add a
-README file to your reposotory. Leve “No .gitignore” and “No licence” as
+README file to your repository. Leve “No .gitignore” and “No licence” as
 it is, and then click on the green “Create repository” button. That’s
 all you need to create a repository.</p>
-<p>When creating a repo, we suggest to do it private first as you can
-change it to publicly available anytime later. We also suggest reading
-about licenses sometime later.</p>
+<p>When creating a repository, we suggest to do it private first as you
+can change it to publicly available anytime later. We also suggest
+reading about licenses sometime later.</p>
 <p>Now that you’ve created your 1st repository, we will clone it on your
 local machine. Note that you may clone ANY public repository in the
 exact same way.</p>
@@ -375,15 +375,15 @@ created by other users.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="clone-the-remote-repo-and-make-it-a-local-repository">2. Clone the remote repo and make it a local repository<a class="anchor" aria-label="anchor" href="#clone-the-remote-repo-and-make-it-a-local-repository"></a>
+</section><section><h2 class="section-heading" id="clone-the-remote-repository-and-make-it-a-local-repository">2. Clone the remote repository and make it a local repository<a class="anchor" aria-label="anchor" href="#clone-the-remote-repository-and-make-it-a-local-repository"></a>
 </h2>
 <hr class="half-width">
 <p>At your new remote repository, find and click at the green box where
 it says “&lt;&gt;Code”. A dropdown menu box will appear, and you’ll be
 able to copy the HTTPS adress.</p>
 <p>For now on, this session will be mainly executed at the terminal.
-We’ll use the <code>git clone</code> command plus the HTTPS address you
-just copied:</p>
+We’ll use the <code>git clone</code> command and paste the HTTPS address
+you just copied:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -444,11 +444,12 @@ inside the terminal, and there are many. Here we’ll use vim.</p>
 <span class="callout-header">Callout</span>
 <div class="callout-inner">
 <div class="callout-content">
-<p>Vim is a text editor released in 1992. To use it you must first press
-<code>I</code> to begin <code>INSERT</code> mode after running the
-program. Whist in <code>INSERT</code> mode, add the two lines below.
-Then, to save the content, you must press <code>ESC</code>, then
-<code>:</code>, then <code>wc</code> and <code>ENTER</code>.</p>
+<p>Vim is a text editor released in 1992. To start adding text to a file
+you must first press <code>I</code> to begin <code>INSERT</code> mode
+after executing the program in the Terminal. Whist in
+<code>INSERT</code> mode, add the two lines below. Then, to save the
+content, you must press <code>ESC</code>, then <code>:</code>, then
+<code>wc</code> and <code>ENTER</code>.</p>
 </div>
 </div>
 </div>
@@ -498,8 +499,9 @@ status again.</p>
 </div>
 <blockquote>
 <p>The first message tells about an “untracked” file, that will be
-tracked after adding to the index area; The second message tells us that
-the new file is now in the index area and ready to be committed.</p>
+tracked after adding it to the index area; The second message tells us
+that the new file is now in the index area and ready to be
+committed.</p>
 </blockquote>
 <p>Let’s do our first commit:</p>
 <div class="codewrapper sourceCode" id="cb8">
@@ -528,23 +530,27 @@ the new file is now in the index area and ready to be committed.</p>
 <span id="cb9-12"><a href="#cb9-12" tabindex="-1" aria-label="code-block-9-12"></a>    <span class="ex">Initial</span> commit</span></code></pre>
 </div>
 <blockquote>
-<p>Your log will look different; Your commit will have a different ID,
-and your username should be different to this one! This is the “standard
-loop” of git: generate content; fill up an index of modified files;
-commit those changes to the repository.</p>
+<p>Your log will look different because of the different commit ID,
+along with names, date and author name; Every commit has a different ID,
+and Git uses this ID to track any change previously committed. This is
+the basic way of working with git: you generate content; add the files
+to the index area; then commit those changes to the local repository;
+and finally push to the remote repository.</p>
 </blockquote>
-</section><section><h2 class="section-heading" id="lets-test-the-repository">5. Let’s test the repository<a class="anchor" aria-label="anchor" href="#lets-test-the-repository"></a>
+</section><section><h2 class="section-heading" id="run-a-test-of-your-new-repository">5. Run a “test” of your new repository<a class="anchor" aria-label="anchor" href="#run-a-test-of-your-new-repository"></a>
 </h2>
 <hr class="half-width">
-<p>One use of git is as a method of backup. Let’s test this by deleting
-the file.</p>
+<p>Once your repository has being created, any file(s) accidentally
+deleted can be recovered. If you’ve commited to your local repository
+only, you may recover deleted files when using the same computer
+originally used to create the repository. Let’s test this feature by
+deleting the code you’ve created.</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="ex">$</span> rm myCode.py</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1" aria-label="code-block-10-2"></a><span class="ex">$</span> ls</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="ex">$</span> rm myCode.py</span></code></pre>
 </div>
-<p>Oops! We’ve accidentially deleted our code! Not to worry; we have a
+<p>Oops! We’ve “accidentially” deleted our code! Not to worry; we have a
 copy in the repository. First, let’s check what git thinks about
 this:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -564,12 +570,12 @@ this:</p>
 </div>
 <blockquote>
 <p>This message is telling us that a file that is recorded in the
-repository is missing. We have the option of recording its deletion in
-the index and committing that (we’d use <code>git rm myCode.py</code>),
-but in this case the deletion was accidental so we’ll simply get the
-file back from the latest commit.</p>
+repository is missing. There’s a command line to delete and retain
+deletion in the index in the repository. This can be done by entering
+<code>git rm myCode.py</code>.</p>
 </blockquote>
-<p>We can retrieve the file from the latest commit:</p>
+<p>Since the deletion was “accidental”, we can retrieve the file with
+the following commands:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -578,7 +584,7 @@ file back from the latest commit.</p>
 <span id="cb12-3"><a href="#cb12-3" tabindex="-1" aria-label="code-block-12-3"></a><span class="ex">$</span> ls</span></code></pre>
 </div>
 <blockquote>
-<p>Great! We’ve got our code back again. This is a major benefit of
+<p>We’ve got our code back again. This is a major benefit of
 <code>git</code>.</p>
 </blockquote>
 </section><section><h2 class="section-heading" id="adding-a-feature">6. Adding a feature<a class="anchor" aria-label="anchor" href="#adding-a-feature"></a>
