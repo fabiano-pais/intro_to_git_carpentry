@@ -199,7 +199,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 > This second message is telling us that a file that is recorded in the repository is missing.
 > Please note there's a command line to delete and retain deletion in the index in the repository. This can be done by entering `git rm myCode.py`.
 
-Since the deletion was "accidental", we can retrieve the file with the following commands:
+Since the deletion was "accidental", we can retrieve the file with the following commands
 
 ```bash
 $ git checkout myCode.py
@@ -213,7 +213,7 @@ $ ls
 ## 6. Adding a feature
 
 Now, let's say we need to update our code.
-We'll do this in a new branch in case our modifications break something. Branches can be very usefull at any early "testing" steps. 
+We'll do this in a new branch in case our modifications break something. Branches can be very usefull at any early "testing" steps.
 
 First, let's create a new branch my checking out the latest commit into a new branch (called `more coding`):
 
@@ -252,7 +252,7 @@ $ git commit -m"Adding more code"
 
 > Obviously, in the real world, more complex features will be implemented, and would likely require multiple rounds of code editing and committing.
 
-Although we've now edited myCode.py, we can still get back to the previous version by switching branches back to main. Use the command "cat" to check the content of the file on your current branch, and after switching branches.
+Although we've now edited myCode.py, we can still get back to the previous version by switching branches back to main. Use the command `cat` to check the content of the file on your current branch, and after switching branches.
 
 ```bash
 $ git switch main
@@ -267,7 +267,7 @@ print("Hello, world!")
 
 > As you can see, this version of myCode.py is the old version!
 
-Once we're happy with the new code, we can merge the branch back into the main branch:
+Once we're happy with the new code, we can merge the branch back into the main branch.
 
 ```bash
 $ git merge more-coding
@@ -281,7 +281,7 @@ Fast-forward
 
 ## 7. Push the local repository to GitHub
 
-Now that the local repository is linked to a remote location, we can push it to the cloud:
+Now that the local repository is linked to a remote location, we can push it to the cloud
 
 ```bash
 $ git status
@@ -307,16 +307,8 @@ If you go back to the GitHub and refresh the repository page, you should see tha
 
 ## 8. Adding a README file
 
-At this stage, the repository you've created is not documented. You've asked Git to create a READme file, and you will a file named `README` or `README.md` in the root of your workspace. The READme file should contains what you've added at the  "description" field. This time, we will make changes in the remote repository. Find the README.md file on the Github webpage and click in the pen at the left side of the screen.
-Add any information you may find usefull and click the green "COMMIT CHANGES" button on the left side of the screen. Remember that this change was made at the remote repository, so you'll need to pull changes to your local repository.
-
-```bash
-# Analytics 2 
-
-Introduction to Version Control.
-```
-
-As we've added a file, we need to make a new commit:
+At this stage, the repository you've created is not documented. You've asked Git to create a README file, and you will a file named `README.md` in the root of your workspace. The README file should contains what you've added at the  "description" field. This time, we will make changes in the remote repository. Find the README.md file on the Github webpage and click in the pen at the left side of the screen.
+Add any information you may find usefull and click the green `COMMIT CHANGES` button on the left side of the screen. Remember that this change was made at the remote repository, so you'll need to pull changes to your local repository.
 
 ```bash
 $ git status
