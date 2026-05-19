@@ -2,6 +2,8 @@
 title: Setup
 ---
 
+The content if this course was developed by the Data Science Hub, from the Bioscience Technology Facility at the University of York.
+
 Instructions to complete the Introduction to Version Control with Git course live in this document.
 Please follow the steps below to set up your environment before starting the lessons.
 We will start with a brief introduction to our course, followed by hands-on sessions to get you familiarazed with Git.
