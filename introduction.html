@@ -549,7 +549,7 @@ deletion in the index in the repository. This can be done by entering
 <code>git rm myCode.py</code>.</p>
 </blockquote>
 <p>Since the deletion was “accidental”, we can retrieve the file with
-the following commands:</p>
+the following commands</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -612,8 +612,8 @@ and committing.</p>
 </blockquote>
 <p>Although we’ve now edited myCode.py, we can still get back to the
 previous version by switching branches back to main. Use the command
-“cat” to check the content of the file on your current branch, and after
-switching branches.</p>
+<code>cat</code> to check the content of the file on your current
+branch, and after switching branches.</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -630,7 +630,7 @@ switching branches.</p>
 <p>As you can see, this version of myCode.py is the old version!</p>
 </blockquote>
 <p>Once we’re happy with the new code, we can merge the branch back into
-the main branch:</p>
+the main branch.</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -646,7 +646,7 @@ in the main branch, and our code has been correctly updated.</p>
 </blockquote>
 </section><section><h2 class="section-heading" id="push-the-local-repository-to-github">7. Push the local repository to GitHub<a class="anchor" aria-label="anchor" href="#push-the-local-repository-to-github"></a></h2>
 <hr class="half-width"><p>Now that the local repository is linked to a remote location, we can
-push it to the cloud:</p>
+push it to the cloud</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -672,40 +672,32 @@ If you go back to the GitHub and refresh the repository page, you should
 see that your code has been uploaded.</p>
 </section><section><h2 class="section-heading" id="adding-a-readme-file">8. Adding a README file<a class="anchor" aria-label="anchor" href="#adding-a-readme-file"></a></h2>
 <hr class="half-width"><p>At this stage, the repository you’ve created is not documented.
-You’ve asked Git to create a READme file, and you will a file named
-<code>README</code> or <code>README.md</code> in the root of your
-workspace. The READme file should contains what you’ve added at the
-“description” field. This time, we will make changes in the remote
-repository. Find the README.md file on the Github webpage and click in
-the pen at the left side of the screen. Add any information you may find
-usefull and click the green “COMMIT CHANGES” button on the left side of
-the screen. Remember that this change was made at the remote repository,
-so you’ll need to pull changes to your local repository.</p>
+You’ve asked Git to create a README file, and you will a file named
+<code>README.md</code> in the root of your workspace. The README file
+should contains what you’ve added at the “description” field. This time,
+we will make changes in the remote repository. Find the README.md file
+on the Github webpage and click in the pen at the left side of the
+screen. Add any information you may find usefull and click the green
+<code>COMMIT CHANGES</code> button on the left side of the screen.
+Remember that this change was made at the remote repository, so you’ll
+need to pull changes to your local repository.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1" aria-label="code-block-18-1"></a><span class="co"># Analytics 2 </span></span>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1" aria-label="code-block-18-1"></a><span class="ex">$</span> git status</span>
 <span id="cb18-2"><a href="#cb18-2" tabindex="-1" aria-label="code-block-18-2"></a></span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1" aria-label="code-block-18-3"></a><span class="ex">Introduction</span> to Version Control.</span></code></pre>
-</div>
-<p>As we’ve added a file, we need to make a new commit:</p>
-<div class="codewrapper sourceCode" id="cb19">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1" aria-label="code-block-19-1"></a><span class="ex">$</span> git status</span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1" aria-label="code-block-19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3" tabindex="-1" aria-label="code-block-19-3"></a><span class="ex">$</span> git pull</span>
-<span id="cb19-4"><a href="#cb19-4" tabindex="-1" aria-label="code-block-19-4"></a><span class="ex">remote:</span> Enumerating objects: 5, done.</span>
-<span id="cb19-5"><a href="#cb19-5" tabindex="-1" aria-label="code-block-19-5"></a><span class="ex">remote:</span> Counting objects: 100% <span class="er">(</span><span class="ex">5/5</span><span class="kw">)</span><span class="ex">,</span> done.</span>
-<span id="cb19-6"><a href="#cb19-6" tabindex="-1" aria-label="code-block-19-6"></a><span class="ex">remote:</span> Compressing objects: 100% <span class="er">(</span><span class="ex">2/2</span><span class="kw">)</span><span class="ex">,</span> done.</span>
-<span id="cb19-7"><a href="#cb19-7" tabindex="-1" aria-label="code-block-19-7"></a><span class="ex">remote:</span> Total 3 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> reused 0 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> pack-reused 0 <span class="er">(</span><span class="ex">from</span> 0<span class="kw">)</span></span>
-<span id="cb19-8"><a href="#cb19-8" tabindex="-1" aria-label="code-block-19-8"></a><span class="ex">Unpacking</span> objects: 100% <span class="er">(</span><span class="ex">3/3</span><span class="kw">)</span><span class="ex">,</span> 970 bytes <span class="kw">|</span> <span class="ex">161.00</span> KiB/s, done.</span>
-<span id="cb19-9"><a href="#cb19-9" tabindex="-1" aria-label="code-block-19-9"></a><span class="ex">From</span> https://github.com/fabiano-pais/test-may-26</span>
-<span id="cb19-10"><a href="#cb19-10" tabindex="-1" aria-label="code-block-19-10"></a>   <span class="ex">630f05d..655d071</span>  main       <span class="at">-</span><span class="op">&gt;</span> origin/main</span>
-<span id="cb19-11"><a href="#cb19-11" tabindex="-1" aria-label="code-block-19-11"></a><span class="ex">Updating</span> 630f05d..655d071</span>
-<span id="cb19-12"><a href="#cb19-12" tabindex="-1" aria-label="code-block-19-12"></a><span class="ex">Fast-forward</span></span>
-<span id="cb19-13"><a href="#cb19-13" tabindex="-1" aria-label="code-block-19-13"></a> <span class="ex">README.md</span> <span class="kw">|</span> <span class="ex">1</span> +</span>
-<span id="cb19-14"><a href="#cb19-14" tabindex="-1" aria-label="code-block-19-14"></a> <span class="ex">1</span> file changed, 1 insertion<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span></code></pre>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1" aria-label="code-block-18-3"></a><span class="ex">$</span> git pull</span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1" aria-label="code-block-18-4"></a><span class="ex">remote:</span> Enumerating objects: 5, done.</span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1" aria-label="code-block-18-5"></a><span class="ex">remote:</span> Counting objects: 100% <span class="er">(</span><span class="ex">5/5</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1" aria-label="code-block-18-6"></a><span class="ex">remote:</span> Compressing objects: 100% <span class="er">(</span><span class="ex">2/2</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1" aria-label="code-block-18-7"></a><span class="ex">remote:</span> Total 3 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> reused 0 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> pack-reused 0 <span class="er">(</span><span class="ex">from</span> 0<span class="kw">)</span></span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1" aria-label="code-block-18-8"></a><span class="ex">Unpacking</span> objects: 100% <span class="er">(</span><span class="ex">3/3</span><span class="kw">)</span><span class="ex">,</span> 970 bytes <span class="kw">|</span> <span class="ex">161.00</span> KiB/s, done.</span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1" aria-label="code-block-18-9"></a><span class="ex">From</span> https://github.com/fabiano-pais/test-may-26</span>
+<span id="cb18-10"><a href="#cb18-10" tabindex="-1" aria-label="code-block-18-10"></a>   <span class="ex">630f05d..655d071</span>  main       <span class="at">-</span><span class="op">&gt;</span> origin/main</span>
+<span id="cb18-11"><a href="#cb18-11" tabindex="-1" aria-label="code-block-18-11"></a><span class="ex">Updating</span> 630f05d..655d071</span>
+<span id="cb18-12"><a href="#cb18-12" tabindex="-1" aria-label="code-block-18-12"></a><span class="ex">Fast-forward</span></span>
+<span id="cb18-13"><a href="#cb18-13" tabindex="-1" aria-label="code-block-18-13"></a> <span class="ex">README.md</span> <span class="kw">|</span> <span class="ex">1</span> +</span>
+<span id="cb18-14"><a href="#cb18-14" tabindex="-1" aria-label="code-block-18-14"></a> <span class="ex">1</span> file changed, 1 insertion<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span></code></pre>
 </div>
 <p>Check, at the Terminal, the updates made to the README file. You
 should see the new README documentation appear.</p>
