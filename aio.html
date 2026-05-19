@@ -293,7 +293,7 @@
         
 <section id="aio-introduction"><p>Content from <a href="introduction.html">Version Control with Git and GitHub</a></p>
 <hr>
-<p>Last updated on 2026-05-18 |
+<p>Last updated on 2026-05-19 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -412,10 +412,9 @@ directory exists, move into the new directory and list its contents:</p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="ex">$</span> git status</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1" aria-label="code-block-3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1" aria-label="code-block-3-3"></a><span class="ex">On</span> branch main</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1" aria-label="code-block-3-4"></a></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1" aria-label="code-block-3-5"></a><span class="ex">No</span> commits yet</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1" aria-label="code-block-3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1" aria-label="code-block-3-7"></a><span class="ex">nothing</span> to commit <span class="er">(</span><span class="ex">create/copy</span> files and use <span class="st">"git add"</span> to track<span class="kw">)</span></span></code></pre>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1" aria-label="code-block-3-4"></a><span class="ex">Your</span> branch is up to date with <span class="st">'origin/main'</span>.</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1" aria-label="code-block-3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1" aria-label="code-block-3-6"></a><span class="ex">nothing</span> to commit, working tree clean</span></code></pre>
 </div>
 <blockquote>
 <p>The above message is saying that you’re in the main branch of the
@@ -468,7 +467,7 @@ python code on the terminal.</p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a><span class="ex">$</span> python myCode.py</span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1" aria-label="code-block-6-2"></a><span class="ex">Hello,</span> world!</span></code></pre>
 </div>
-</section><section><h2 class="section-heading" id="make-your-first-commit">4. Make your first commit<a class="anchor" aria-label="anchor" href="#make-your-first-commit"></a>
+</section><section><h2 class="section-heading" id="make-your-first-commit-and-push-to-the-remote-repository">4. Make your first commit and push to the remote repository<a class="anchor" aria-label="anchor" href="#make-your-first-commit-and-push-to-the-remote-repository"></a>
 </h2>
 <hr class="half-width">
 <p>We now need to add the new file to the index, and commit it to our
@@ -535,7 +534,7 @@ along with names, date and author name; Every commit has a different ID,
 and Git uses this ID to track any change previously committed. This is
 the basic way of working with git: you generate content; add the files
 to the index area; then commit those changes to the local repository;
-and finally push to the remote repository.</p>
+and finally push to the remote repository (we will push at step 7).</p>
 </blockquote>
 </section><section><h2 class="section-heading" id="run-a-test-of-your-new-repository">5. Run a “test” of your new repository<a class="anchor" aria-label="anchor" href="#run-a-test-of-your-new-repository"></a>
 </h2>
@@ -550,8 +549,8 @@ deleting the code you’ve created.</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="ex">$</span> rm myCode.py</span></code></pre>
 </div>
-<p>Oops! We’ve “accidentially” deleted our code! Not to worry; we have a
-copy in the repository. First, let’s check what git thinks about
+<p>Oops! We’ve now “accidentially” deleted our code! Not to worry; we
+have a copy in the repository. First, let’s check what git thinks about
 this:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -569,8 +568,10 @@ this:</p>
 <span id="cb11-11"><a href="#cb11-11" tabindex="-1" aria-label="code-block-11-11"></a><span class="ex">no</span> changes added to commit <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> and/or <span class="st">"git commit -a"</span><span class="kw">)</span></span></code></pre>
 </div>
 <blockquote>
-<p>This message is telling us that a file that is recorded in the
-repository is missing. There’s a command line to delete and retain
+<p>This first message is telling us that this branch is ahead of origin
+by 1 commit, which is correct. We’ve not pushed changes yet. This second
+message is telling us that a file that is recorded in the repository is
+missing. Please note there’s a command line to delete and retain
 deletion in the index in the repository. This can be done by entering
 <code>git rm myCode.py</code>.</p>
 </blockquote>
@@ -591,7 +592,8 @@ the following commands:</p>
 </h2>
 <hr class="half-width">
 <p>Now, let’s say we need to update our code. We’ll do this in a new
-branch in case our modifications break something.</p>
+branch in case our modifications break something. Branches can be very
+usefull at any early “testing” steps.</p>
 <p>First, let’s create a new branch my checking out the latest commit
 into a new branch (called <code>more coding</code>):</p>
 <div class="codewrapper sourceCode" id="cb13">
@@ -622,8 +624,8 @@ content, press <code>ESC</code>, then <code>:</code>, then
 </div>
 <p>Update line 2: print(“Hello, UoY!”)</p>
 <p>Add a new line (3): print(“I’m learning GIT!”)</p>
-<p>Now that we’ve made some modifictions, save the file, and then make a
-new index and commit is as before:</p>
+<p>Now that we’ve made some modifictions, save the file, and index the
+file and commit is same as done before:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -637,8 +639,10 @@ new index and commit is as before:</p>
 implemented, and would likely require multiple rounds of code editing
 and committing.</p>
 </blockquote>
-<p>Although we’ve now edited myCode.py, we can still get the unedited
-version by switching branches back to main:</p>
+<p>Although we’ve now edited myCode.py, we can still get back to the
+previous version by switching branches back to main. Use the command
+“cat” to check the content of the file on your current branch, and after
+switching branches.</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -704,13 +708,18 @@ see that your code has been uploaded.</p>
 You’ve asked Git to create a READme file, and you will a file named
 <code>README</code> or <code>README.md</code> in the root of your
 workspace. The READme file should contains what you’ve added at the
-“description” field.</p>
+“description” field. This time, we will make changes in the remote
+repository. Find the README.md file on the Github webpage and click in
+the pen at the left side of the screen. Add any information you may find
+usefull and click the green “COMMIT CHANGES” button on the left side of
+the screen. Remember that this change was made at the remote repository,
+so you’ll need to pull changes to your local repository.</p>
 <div class="codewrapper sourceCode" id="cb18">
-<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" tabindex="-1" aria-label="code-block-18-1"></a><span class="fu"># Analytics 2 </span></span>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1" aria-label="code-block-18-1"></a><span class="co"># Analytics 2 </span></span>
 <span id="cb18-2"><a href="#cb18-2" tabindex="-1" aria-label="code-block-18-2"></a></span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1" aria-label="code-block-18-3"></a>Introduction to Version Control.</span></code></pre>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1" aria-label="code-block-18-3"></a><span class="ex">Introduction</span> to Version Control.</span></code></pre>
 </div>
 <p>As we’ve added a file, we need to make a new commit:</p>
 <div class="codewrapper sourceCode" id="cb19">
@@ -718,28 +727,21 @@ workspace. The READme file should contains what you’ve added at the
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1" aria-label="code-block-19-1"></a><span class="ex">$</span> git status</span>
 <span id="cb19-2"><a href="#cb19-2" tabindex="-1" aria-label="code-block-19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3" tabindex="-1" aria-label="code-block-19-3"></a><span class="ex">$</span> git add README.md</span>
-<span id="cb19-4"><a href="#cb19-4" tabindex="-1" aria-label="code-block-19-4"></a></span>
-<span id="cb19-5"><a href="#cb19-5" tabindex="-1" aria-label="code-block-19-5"></a><span class="ex">$</span> git commit <span class="at">-m</span><span class="st">"Adding info to README"</span></span>
-<span id="cb19-6"><a href="#cb19-6" tabindex="-1" aria-label="code-block-19-6"></a><span class="ex">[main</span> fb725f2] Adding info to README</span>
-<span id="cb19-7"><a href="#cb19-7" tabindex="-1" aria-label="code-block-19-7"></a> <span class="ex">1</span> file changed, 3 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span><span class="ex">,</span> 1 deletion<span class="er">(</span><span class="ex">-</span><span class="kw">)</span></span></code></pre>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1" aria-label="code-block-19-3"></a><span class="ex">$</span> git pull</span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1" aria-label="code-block-19-4"></a><span class="ex">remote:</span> Enumerating objects: 5, done.</span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1" aria-label="code-block-19-5"></a><span class="ex">remote:</span> Counting objects: 100% <span class="er">(</span><span class="ex">5/5</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1" aria-label="code-block-19-6"></a><span class="ex">remote:</span> Compressing objects: 100% <span class="er">(</span><span class="ex">2/2</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1" aria-label="code-block-19-7"></a><span class="ex">remote:</span> Total 3 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> reused 0 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> pack-reused 0 <span class="er">(</span><span class="ex">from</span> 0<span class="kw">)</span></span>
+<span id="cb19-8"><a href="#cb19-8" tabindex="-1" aria-label="code-block-19-8"></a><span class="ex">Unpacking</span> objects: 100% <span class="er">(</span><span class="ex">3/3</span><span class="kw">)</span><span class="ex">,</span> 970 bytes <span class="kw">|</span> <span class="ex">161.00</span> KiB/s, done.</span>
+<span id="cb19-9"><a href="#cb19-9" tabindex="-1" aria-label="code-block-19-9"></a><span class="ex">From</span> https://github.com/fabiano-pais/test-may-26</span>
+<span id="cb19-10"><a href="#cb19-10" tabindex="-1" aria-label="code-block-19-10"></a>   <span class="ex">630f05d..655d071</span>  main       <span class="at">-</span><span class="op">&gt;</span> origin/main</span>
+<span id="cb19-11"><a href="#cb19-11" tabindex="-1" aria-label="code-block-19-11"></a><span class="ex">Updating</span> 630f05d..655d071</span>
+<span id="cb19-12"><a href="#cb19-12" tabindex="-1" aria-label="code-block-19-12"></a><span class="ex">Fast-forward</span></span>
+<span id="cb19-13"><a href="#cb19-13" tabindex="-1" aria-label="code-block-19-13"></a> <span class="ex">README.md</span> <span class="kw">|</span> <span class="ex">1</span> +</span>
+<span id="cb19-14"><a href="#cb19-14" tabindex="-1" aria-label="code-block-19-14"></a> <span class="ex">1</span> file changed, 1 insertion<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span></code></pre>
 </div>
-<p>We can now push this new commit to GitHub:</p>
-<div class="codewrapper sourceCode" id="cb20">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1" aria-label="code-block-20-1"></a><span class="ex">$</span> git push</span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1" aria-label="code-block-20-2"></a><span class="ex">Enumerating</span> objects: 5, done.</span>
-<span id="cb20-3"><a href="#cb20-3" tabindex="-1" aria-label="code-block-20-3"></a><span class="ex">Counting</span> objects: 100% <span class="er">(</span><span class="ex">5/5</span><span class="kw">)</span><span class="ex">,</span> done.</span>
-<span id="cb20-4"><a href="#cb20-4" tabindex="-1" aria-label="code-block-20-4"></a><span class="ex">Delta</span> compression using up to 8 threads</span>
-<span id="cb20-5"><a href="#cb20-5" tabindex="-1" aria-label="code-block-20-5"></a><span class="ex">Compressing</span> objects: 100% <span class="er">(</span><span class="ex">2/2</span><span class="kw">)</span><span class="ex">,</span> done.</span>
-<span id="cb20-6"><a href="#cb20-6" tabindex="-1" aria-label="code-block-20-6"></a><span class="ex">Writing</span> objects: 100% <span class="er">(</span><span class="ex">3/3</span><span class="kw">)</span><span class="ex">,</span> 334 bytes <span class="kw">|</span> <span class="ex">334.00</span> KiB/s, done.</span>
-<span id="cb20-7"><a href="#cb20-7" tabindex="-1" aria-label="code-block-20-7"></a><span class="ex">Total</span> 3 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> reused 0 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> pack-reused 0</span>
-<span id="cb20-8"><a href="#cb20-8" tabindex="-1" aria-label="code-block-20-8"></a><span class="ex">To</span> https://github.com/fabiano-pais/test-march25.git</span>
-<span id="cb20-9"><a href="#cb20-9" tabindex="-1" aria-label="code-block-20-9"></a>   <span class="ex">81d2bed..fb725f2</span>  main <span class="at">-</span><span class="op">&gt;</span> main</span></code></pre>
-</div>
-<p>Go back to Github and refresh the page again. Hopefully, you’ll see
-the new README documentation appear.</p>
+<p>Check, at the Terminal, the updates made to the README file. You
+should see the new README documentation appear.</p>
 </section><section><h2 class="section-heading" id="markdown">9. Markdown<a class="anchor" aria-label="anchor" href="#markdown"></a>
 </h2>
 <hr class="half-width">
@@ -750,6 +752,17 @@ computer to render our text nicely. You can learn more about this format
 by reading the <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github" class="external-link">documentation
 on GitHub</a>.</p>
 </blockquote>
+<div id="callout4" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>Congratulations! You’ve completed the Introduction to Git.</p>
+</div>
+</div>
+</div>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
@@ -803,7 +816,7 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/aio.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/aio.html",
-  "dateCreated": "2026-05-18",
+  "dateCreated": "2026-05-19",
   "dateModified": "2026-05-19",
   "datePublished": "2026-05-19"
 }
