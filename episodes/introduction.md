@@ -67,10 +67,9 @@ Now check the status of the repository:
 $ git status
 
 On branch main
+Your branch is up to date with 'origin/main'.
 
-No commits yet
-
-nothing to commit (create/copy files and use "git add" to track)
+nothing to commit, working tree clean
 ```
 
 > The above message is saying that you're in the main branch of the repository, no changes were commited so far, and there's nothing to commit.
@@ -109,7 +108,7 @@ $ python myCode.py
 Hello, world!
 ```
 
-## 4. Make your first commit
+## 4. Make your first commit and push to the remote repository
 
 We now need to add the new file to the index, and commit it to our repository.
 Check the status first, then run git add, and run a git status again.
@@ -167,7 +166,7 @@ Date:   Mon Mar 25 11:04:56 2024 +0000
 
 > Your log will look different because of the different commit ID, along with names, date and author name;
 > Every commit has a different ID, and Git uses this ID to track any change previously committed.
-> This is the basic way of working with git: you generate content; add the files to the index area; then commit those changes to the local repository; and finally push to the remote repository.
+> This is the basic way of working with git: you generate content; add the files to the index area; then commit those changes to the local repository; and finally push to the remote repository (we will push at step 7). 
 
 ## 5. Run a "test" of your new repository
 
@@ -178,7 +177,7 @@ Let's test this feature by deleting the code you've created.
 $ rm myCode.py
 ```
 
-Oops!  We've "accidentially" deleted our code!
+Oops!  We've now "accidentially" deleted our code!
 Not to worry; we have a copy in the repository.
 First, let's check what git thinks about this:
 
@@ -196,8 +195,9 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-> This message is telling us that a file that is recorded in the repository is missing.
-> There's a command line to delete and retain deletion in the index in the repository. This can be done by entering `git rm myCode.py`.
+> This first message is telling us that this branch is ahead of origin by 1 commit, which is correct. We've not pushed changes yet.
+> This second message is telling us that a file that is recorded in the repository is missing.
+> Please note there's a command line to delete and retain deletion in the index in the repository. This can be done by entering `git rm myCode.py`.
 
 Since the deletion was "accidental", we can retrieve the file with the following commands:
 
@@ -213,7 +213,7 @@ $ ls
 ## 6. Adding a feature
 
 Now, let's say we need to update our code.
-We'll do this in a new branch in case our modifications break something.
+We'll do this in a new branch in case our modifications break something. Branches can be very usefull at any early "testing" steps. 
 
 First, let's create a new branch my checking out the latest commit into a new branch (called `more coding`):
 
@@ -241,7 +241,7 @@ print("Hello, UoY!")
 Add a new line (3):
 print("I'm learning GIT!")
 
-Now that we've made some modifictions, save the file, and then make a new index and commit is as before:
+Now that we've made some modifictions, save the file, and index the file and commit is same as done before:
 
 ```bash
 $ git add myCode.py
@@ -252,7 +252,7 @@ $ git commit -m"Adding more code"
 
 > Obviously, in the real world, more complex features will be implemented, and would likely require multiple rounds of code editing and committing.
 
-Although we've now edited myCode.py, we can still get the unedited version by switching branches back to main:
+Although we've now edited myCode.py, we can still get back to the previous version by switching branches back to main. Use the command "cat" to check the content of the file on your current branch, and after switching branches.
 
 ```bash
 $ git switch main
@@ -307,10 +307,10 @@ If you go back to the GitHub and refresh the repository page, you should see tha
 
 ## 8. Adding a README file
 
-At this stage, the repository you've created is not documented. You've asked Git to create a READme file, and you will a file named `README` or `README.md` in the root of your workspace. The READme file should contains what you've added at the  "description" field.
+At this stage, the repository you've created is not documented. You've asked Git to create a READme file, and you will a file named `README` or `README.md` in the root of your workspace. The READme file should contains what you've added at the  "description" field. This time, we will make changes in the remote repository. Find the README.md file on the Github webpage and click in the pen at the left side of the screen.
+Add any information you may find usefull and click the green "COMMIT CHANGES" button on the left side of the screen. Remember that this change was made at the remote repository, so you'll need to pull changes to your local repository.
 
-
-```markdown
+```bash
 # Analytics 2 
 
 Introduction to Version Control.
@@ -321,32 +321,30 @@ As we've added a file, we need to make a new commit:
 ```bash
 $ git status
 
-$ git add README.md
-
-$ git commit -m"Adding info to README"
-[main fb725f2] Adding info to README
- 1 file changed, 3 insertions(+), 1 deletion(-)
+$ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 970 bytes | 161.00 KiB/s, done.
+From https://github.com/fabiano-pais/test-may-26
+   630f05d..655d071  main       -> origin/main
+Updating 630f05d..655d071
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
 ```
 
-We can now push this new commit to GitHub:
-
-```bash
-$ git push
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 334 bytes | 334.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-To https://github.com/fabiano-pais/test-march25.git
-   81d2bed..fb725f2  main -> main
-```
-
-Go back to Github and refresh the page again.
-Hopefully, you'll see the new README documentation appear.
+Check, at the Terminal, the updates made to the README file. You should see the new README documentation appear.
 
 ## 9. Markdown
 
 > The `README.md` file we've just created uses a format called Markdown.
 > This is a very simple text file format that allows a computer to render our text nicely.
 > You can learn more about this format by reading the [documentation on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github).
+
+::::::::::::::::::::::::::::::::::::: callout
+
+Congratulations! You've completed the Introduction to Git.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
