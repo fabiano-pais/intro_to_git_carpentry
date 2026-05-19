@@ -7,5 +7,5 @@
 "episodes/introduction.md" "9c483f44932f16695bfb5e4d1723e723" "site/built/introduction.md" "2026-05-19"
 "instructors/instructor-notes.md" "cae72b6712578d74a49fea7513099f8c" "site/built/instructor-notes.md" "2023-03-16"
 "learners/reference.md" "376f0fef94781c05cf42a1ca28cf48ae" "site/built/reference.md" "2026-03-26"
-"learners/setup.md" "ebb9f5fd1c0624a9694f2c2a01694e0c" "site/built/setup.md" "2026-03-26"
+"learners/setup.md" "a3745a227bbeee8ff2d9eb0222c4261a" "site/built/setup.md" "2026-05-19"
 "profiles/learner-profiles.md" "60b93493cf1da06dfd63255d73854461" "site/built/learner-profiles.md" "2022-04-22"
